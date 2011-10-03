@@ -38,29 +38,29 @@ null == undefined		/		null === undefined
          * undefined functions more like the classic C-style null
    * Instead, use "not checks" (e.g. - if (!foo)... )
 
-window.hello
->> undefined
+`window.hello
+>> undefined`
 
-window.hello.something
->> type error
+`window.hello.something
+>> type error`
 
-window.hello == null
->> true
+`window.hello == null
+>> true`
 
-window.hello == undefined
->> true
+`window.hello == undefined
+>> true`
 
-window.hello === null
->> false
+`window.hello === null
+>> false`
 
-window.hello === undefined
->> true
+`window.hello === undefined
+>> true`
 
-typeof(null)
->> object
+`typeof(null)
+>> object`
 
-typeof(undefined)
->> undefined
+`typeof(undefined)
+>> undefined`
 
 Object literals vs constructed objects
 
