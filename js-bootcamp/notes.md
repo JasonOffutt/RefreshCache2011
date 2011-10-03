@@ -1,9 +1,13 @@
 # Fun with equality operators:  ( == vs === )
+```
+'' == '0'		|		'' === 0
+// false		|		// false
+				|
+'' = 0			|		'0' === 0
+// true 		|		// false
+```
 
-|:----------------------------|:---------------------------------|
-|`'' == '0'  // false`         |`'' === '0'  // false`           |
-|`'' = 0  // true `            |`'' === 0   // false`            |
-|`'0' == 0  // true`           |`'0' === 0  // false`            |
+
 |`false == 'false'  // false`  |`false === 'false'  // false`    |
 |`false == 0  // true`         |`false === 0  // false`          |
 |`false == undefined  // false`|`false === undefined  // false`  |
@@ -15,8 +19,7 @@
    * === evaluates both value and type to discern equality
       * behaves more like the traditional C-style '==' operator
    * When in doubt, use '==='
-_____
-_
+
 # Understanding null and undefined
 
    * Avoid explicit null checks in your JavaScript (e.g. - if (foo == null)… )
