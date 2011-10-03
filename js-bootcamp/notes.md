@@ -86,8 +86,8 @@ typeof(undefined)
       * Constructed object initialization is OK for reference-types and custom objects
 
 ```javascript
-var foo = new Foo();
-var a = 'a';console.log(typeof(a));
+var a = 'a';
+console.log(typeof(a));
 >> string
 
 var b = new String('b');
@@ -106,7 +106,7 @@ console.log(typeof(b));
 ```javascript
 foo = 1;
 function test() {
-     foo = 'bar';
+  foo = 'bar';
 }
 test();
 console.log(foo);
@@ -115,7 +115,7 @@ console.log(foo);
 // if we had used var
 foo = 1;
 function test() {
-     var foo = 'bar';
+  var foo = 'bar';
 }
 test();
 console.log(foo);
@@ -154,9 +154,9 @@ var text = 'number ';
 var ul = document.createElement('ul');
 body.appendChild(ul);
 for (var i = 0; i < 100; i++) {
-     var li = document.createElement('li');
-     li.innerText = text + (i + 1);
-     ul.appendChild(li);
+  var li = document.createElement('li');
+  li.innerText = text + (i + 1);
+  ul.appendChild(li);
 }
 
 // GOOD
@@ -164,9 +164,9 @@ var body = document.getElementsByTagName('body')[0];
 var text = 'number ';
 var ul = document.createElement('ul');
 for (var i = 0; i < 100; i++) {
-     var li = document.createElement('li');
-     li.innerText = text + (i + 1);
-     ul.appendChild(li);
+  var li = document.createElement('li');
+  li.innerText = text + (i + 1);
+  ul.appendChild(li);
 }
 body.appendChild(ul);
 ```
@@ -185,27 +185,27 @@ body.appendChild(ul);
 Consider the following code without semicolons:
 
 ```javascript
-(function(window, undefined) {     function test(options) {
+(function(window, undefined) {     
+  function test(options) {
+    log('testing')
 
-          log('testing')
+    (options.list || []).forEach(function(i) {
+    })
 
-          (options.list || []).forEach(function(i) {
-          })
+    options.value.test(
+      'long string to pass here',
+      'and another long string to pass'
+    )
 
-          options.value.test(
-               'long string to pass here',
-               'and another long string to pass'
-          )
-
-          return
-          {
-               foo: function() {}
-          }
-     }
-     window.test = test
+    return
+    {
+      foo: function() {}
+    }
+  }
+  window.test = test
 })(window)
 (function(window) {
-     window.someLibrary = {}
+  window.someLibrary = {}
 })(window)
 ```
 
@@ -213,26 +213,26 @@ The above code will result in the following parsed output:
 
 ```javascript
 (function(window, undefined) {
-     function test(options) {
-          // no insertions, however lines got merged
-          log('testing')(options.list || []).forEach(function(i) {
-          });  // <- insertion
+  function test(options) {
+    // no insertions, however lines got merged
+    log('testing')(options.list || []).forEach(function(i) {
+    });  // <- insertion
 
-          options.value.test(
-               'a long string to pass here',
-               'and another long string to pass'
-          );  // <- insertion
+    options.value.test(
+      'a long string to pass here',
+      'and another long string to pass'
+    );  // <- insertion
           
-          return;  // <- insertion, breaks the return statement
-          {  // treated as a block
-               // this is now treated as a label and single expression statement
-               foo: function() {}
-          );  // <- insertion
+    return;  // <- insertion, breaks the return statement
+    {  // treated as a block
+      // this is now treated as a label and single expression statement
+      foo: function() {}
+  };  // <- insertion
 
-          window.test = test;  // <- insertion
-// another instance of lines being merged
+  window.test = test;  // <- insertion
+  // another instance of lines being merged
 })(window)(function(window) { 
-     window.someLibrary = {};  // <- insertion
+    window.someLibrary = {};  // <- insertion
 ))(window);  // <- insertion
 ```
 
