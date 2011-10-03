@@ -2,25 +2,32 @@
 ```javascript
 '' == '0'				/		'' === 0
 >> false				/		>> false
-						/
+```
+```javascript
 '' = 0					/		'0' === 0
 >> true 				/		>> false
-						/
+```
+```javascript
 false == 'false'		/		false === 'false'
 >> false				/		>> false
-						/
+```
+```javascript
 false == 0				/		false === 0
 >> true					/		>> false
-						/
+```
+```javascript
 false == undefined		/		false === undefined
 >> false				/		>> false
-						/
+```
+```javascript
 false == null			/		false === null
 >> true					/		>> false
-						/
+```
+```javascript
 null == undefined		/		null === undefined
 >> true					/		>> false
-						/
+```
+```javascript
 ' \t\r\n' == 0			/		' \t\r\n' === 0
 >> true					/		>> false
 ```
