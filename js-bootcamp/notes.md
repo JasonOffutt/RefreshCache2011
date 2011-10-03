@@ -1,19 +1,29 @@
 # Fun with equality operators:  ( == vs === )
 ```
-'' == '0'		|		'' === 0
-// false		|		// false
-				|
-'' = 0			|		'0' === 0
-// true 		|		// false
+'' == '0'			|		'' === 0
+// false			|		// false
+					|
+'' = 0				|		'0' === 0
+// true 			|		// false
+					|
+false == 'false'	|		false === 'false'
+// false			|		// false
+					|
+false == 0			|		false === 0
+// true				|		// false
+					|
+false == undefined	|		false === undefined
+// false			|		// false
+					|
+false == null		|		false === null
+// true				|		// false
+					|
+null == undefined	|		null === undefined
+// true				|		// false
+					|
+' \t\r\n' == 0		|		' \t\r\n' === 0
+// true				|		// false
 ```
-
-
-|`false == 'false'  // false`  |`false === 'false'  // false`    |
-|`false == 0  // true`         |`false === 0  // false`          |
-|`false == undefined  // false`|`false === undefined  // false`  |
-|`false == null  // true`      |`false === null  // false`       |
-|`null == undefined  // true`  |`null === undefined  // false`   |
-|`' \t\r\n' == 0  // true`     |`' \t\r\n' === 0  // false`      |
 
    * == uses type coercion (weak typing) to try to discern equality
    * === evaluates both value and type to discern equality
