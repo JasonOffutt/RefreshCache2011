@@ -129,7 +129,7 @@ console.log(foo);
 >> 1
 ```
 
-Interacting with the DOM
+# Interacting with the DOM
 
    * Text and HTML
       * innerText vs innerHTML (or $.text() vs $.html() in jQuery)
