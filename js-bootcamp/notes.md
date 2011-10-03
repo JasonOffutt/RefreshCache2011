@@ -227,8 +227,8 @@ The above code will result in the following parsed output:
     {  // treated as a block
       // this is now treated as a label and single expression statement
       foo: function() {}
-  };  // <- insertion
-
+    };  // <- insertion
+  }
   window.test = test;  // <- insertion
   // another instance of lines being merged
 })(window)(function(window) { 
