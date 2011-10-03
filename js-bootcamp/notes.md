@@ -39,11 +39,11 @@ null == undefined		/		null === undefined
 
 # Understanding null and undefined
 
-   * Avoid explicit null checks in your JavaScript (e.g. - if (foo == null)… )
+   * Avoid explicit null checks in your JavaScript (e.g. - `if (foo == null)...` )
       * null is an object whose type is "null"
       * undefined is NOT an object. Its type is 'undefined'
          * undefined functions more like the classic C-style null
-   * Instead, use "not checks" (e.g. - if (!foo)... )
+   * Instead, use "not checks" (e.g. - `if (!foo)...` )
 
 ```javascript
 window.hello
