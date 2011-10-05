@@ -50,7 +50,7 @@ If we bring in closures, and make use of the apply function, we can create somet
 ```javascript
 var bind = function(func, valueOfThis) {
 	return function() {
-		return func.apply(thisValue, arguments);	// arguments is an array-like container for all function params passed in
+		return func.apply(valueOfThis, arguments);	// arguments is an array-like container for all function params passed in
 	}
 };
 
@@ -67,3 +67,5 @@ $('#some-element').click(function() {
 	$(this).addClass('selected');
 });
 ```
+
+# Understanding closures and anonymous functions
