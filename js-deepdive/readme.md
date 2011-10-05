@@ -35,3 +35,20 @@ $('#some-element').click(function() {
 	$(this).addClass('selected');
 });
 ```
+
+In the case of a member function, the relationship will look like this:
+
+```javascript
+var person = {
+	name: 'Jason Offutt',
+	hello: function(name) {
+		console.log(this + ' says "Hello ' + name + '!"');
+	}
+};
+
+// this
+person.hello('world');
+
+// is equal to this
+person.hello.call(person, 'world');
+```
