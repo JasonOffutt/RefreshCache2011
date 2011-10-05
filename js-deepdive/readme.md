@@ -15,9 +15,10 @@ function hello(name) {
 }
 ```
 
-The traditional method calling syntax of `hello('world');` is actually shorthand for `hello.call(window, "world");`. 
+The traditional method calling syntax of `hello('world');` is actually shorthand for `hello.call(this, "world");`. 
+In the scope of a browser, the value of 'this' starts out as the global object 'window'.
 
-Both of which would output `[object DOMWindow] says "Hello world!"` to the console.
+So whether we use the shorthand notation or we use call, `[object DOMWindow] says "Hello world!"` will be emitted to the console.
 
 You can manually assign the contextual value of 'this' using the call method:
 
@@ -25,3 +26,10 @@ You can manually assign the contextual value of 'this' using the call method:
 hello.call('Jason', 'world');
 ```
 
+If you've worked with jQuery, you've probably noticed that they've done some helpful things using call:
+
+```javascript
+$('#some-element').click(function() {
+	$(this).addClass('selected');
+});
+```
