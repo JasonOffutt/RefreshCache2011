@@ -30,6 +30,8 @@ If you've worked with jQuery, you've probably noticed that they've done some hel
 
 ```javascript
 $('#some-element').click(function() {
+	// The jQuery team has thoughtfully modified the value of 'this' to be the 
+	// value of the element that triggered the click event
 	$(this).addClass('selected');
 });
 ```
