@@ -52,3 +52,16 @@ person.hello('world');
 // is equal to this
 person.hello.call(person, 'world');
 ```
+
+If we bring in closures, and make use of the apply function, we can create something reusable for dynamically setting the value of 'this':
+
+```javascript
+var bind = function(func, valueOfThis) {
+	return function() {
+		return func.apply(thisValue, arguments);	// arguments is an array-like container for all function params passed in
+	}
+};
+
+var boundHello = bind(person.hello, person);
+boundHello('world')
+```
