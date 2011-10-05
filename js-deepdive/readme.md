@@ -26,16 +26,6 @@ You can manually assign the contextual value of 'this' using the call method:
 hello.call('Jason', 'world');
 ```
 
-If you've worked with jQuery, you've probably noticed that they've done some helpful things using call:
-
-```javascript
-$('#some-element').click(function() {
-	// The jQuery team has thoughtfully modified the value of 'this' to be the 
-	// value of the element that triggered the click event
-	$(this).addClass('selected');
-});
-```
-
 In the case of a member function, the relationship will look like this:
 
 ```javascript
@@ -53,6 +43,8 @@ person.hello('world');
 person.hello.call(person, 'world');
 ```
 
+You can also manipulate the value of 'this' by using the apply method on a function. The apply method provides us with a way to extend context in a broader range.
+
 If we bring in closures, and make use of the apply function, we can create something reusable for dynamically setting the value of 'this':
 
 ```javascript
@@ -64,4 +56,14 @@ var bind = function(func, valueOfThis) {
 
 var boundHello = bind(person.hello, person);
 boundHello('world');
+```
+
+If you've ever worked with jQuery, you've probably noticed that they've done some helpful things using apply and call to provide some truly useful functionality when scripting events.
+
+```javascript
+$('#some-element').click(function() {
+	// The jQuery team has thoughtfully modified the value of 'this' to be the 
+	// value of the element that triggered the click event
+	$(this).addClass('selected');
+});
 ```
