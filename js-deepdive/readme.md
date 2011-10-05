@@ -42,7 +42,7 @@ In the case of a member function, the relationship will look like this:
 var person = {
 	name: 'Jason Offutt',
 	hello: function(name) {
-		console.log(this + ' says "Hello ' + name + '!"');
+		console.log(this.name + ' says "Hello ' + name + '!"');
 	}
 };
 
@@ -63,5 +63,5 @@ var bind = function(func, valueOfThis) {
 };
 
 var boundHello = bind(person.hello, person);
-boundHello('world')
+boundHello('world');
 ```
