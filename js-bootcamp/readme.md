@@ -32,18 +32,19 @@ null == undefined		/		null === undefined
 >> true					/		>> false
 ```
 
-   * == uses type coercion (weak typing) to try to discern equality
-   * === evaluates both value and type to discern equality
-      * behaves more like the traditional C-style '==' operator
-   * When in doubt, use '==='
+* == uses type coercion (weak typing) to try to discern equality
+	* truthy/falsy
+* === evaluates both value and type to discern equality
+	* behaves more like the traditional C-style '==' operator
+* When in doubt, use '==='
 
 # Understanding null and undefined
 
-   * Avoid explicit null checks in your JavaScript (e.g. - `if (foo == null)...` )
-      * null is an object whose type is "null"
-      * undefined is NOT an object. Its type is 'undefined'
-         * undefined functions more like the classic C-style null
-   * Instead, use "not checks" (e.g. - `if (!foo)...` )
+* Avoid explicit null checks in your JavaScript (e.g. - `if (foo == null)...` )
+	* null is an object whose type is "null"
+	* undefined is NOT an object. Its type is 'undefined'
+		* undefined functions more like the classic C-style null
+* Instead, use "not checks" (e.g. - `if (!foo)...` )
 
 ```javascript
 window.hello
