@@ -36,6 +36,7 @@ null == undefined		/		null === undefined
 	* truthy/falsy
 * === evaluates both value and type to discern equality
 	* behaves more like the traditional C-style '==' operator
+	* true/false
 * When in doubt, use '==='
 
 # Understanding null and undefined
