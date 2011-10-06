@@ -69,3 +69,22 @@ $('#some-element').click(function() {
 ```
 
 # Understanding closures and anonymous functions
+
+* A closure is a reference in memory to a function
+	* variable values are preserved
+	* context and state is also preserved
+* Closures are not deallocated from memory when they lose scope
+
+```javascript
+function outerScopedFunction() {
+	var b = 'outer scope';
+	console.log(a);				// 'global scope'
+	
+	// The closure created by this function effectively hides global scope
+	function innerScopedFunction() {
+		console.log(a);			// undefined
+		var a = 'inner scope';
+		console.log(a);			// 'inner scope'
+	}
+}
+```
