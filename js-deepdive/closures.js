@@ -20,11 +20,11 @@ var createAdders2 = function() {
 	var fns = [];
 
 	for (var i = 1; i < 4; i++) {
-		(function(i) {				// Because we add an extra closure here he state of the...
+		(function(i) {				// Because we add an extra closure here the state of the...
 			fns[i] = (function(n) {		// variables passed in will be preserved with the context of each iteration.
 				return i + n;
 			});				// Doing this creates a reference to each value that the funciton gets called with.
-		})(i)
+		})(i);					// Call our new anonymous function and pass in our counter
 	}
 
 	return fns;

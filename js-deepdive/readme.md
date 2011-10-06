@@ -182,3 +182,8 @@ CentralAZ.Web.EventRegistration = (function() {
 	// ... code goes in here...
 })();
 ```
+
+My personal fav is Cascading. Though it's a little more involved than the other approaches, it gives you the most flexibility.
+
+# Object Prototypes
+

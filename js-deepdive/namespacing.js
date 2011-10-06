@@ -28,10 +28,17 @@ console.log(Singleton.addNumbers(2, 5));
 
 
 var Cascading = Cascading || {};			// Create a chain of objects that hangs off the global scope
-Cascading.Method = Cascading.Method || {};
+Cascading.Method = Cascading.Method || {};		// The or check (||) ensures you're not ruining your own code
+
+Cascading.Method.config = {				// This method provides some nice options to cleanly break your
+	foo: 'foo',					// code out into managable chunks
+	bar: 'bar',
+	baz: 'baz'
+};
+
 Cascading.Method.Namespace = (function() {		// You can use any other variant with Cascading namespaces
 	return {
-		foo: 'foo';
+		foo: Cascading.Method.config.foo;
 	};
 })();
 
