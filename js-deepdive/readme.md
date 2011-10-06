@@ -68,7 +68,7 @@ $('#some-element').click(function() {
 });
 ```
 
-# Understanding closures and anonymous functions
+# Understanding closures and scope
 
 * A closure is a reference in memory to a function
 	* variable values are preserved
@@ -78,13 +78,34 @@ $('#some-element').click(function() {
 ```javascript
 function outerScopedFunction() {
 	var b = 'outer scope';
-	console.log(a);				// 'global scope'
 	
-	// The closure created by this function effectively hides global scope
 	function innerScopedFunction() {
-		console.log(a);			// undefined
 		var a = 'inner scope';
-		console.log(a);			// 'inner scope'
 	}
 }
 ```
+
+* When the execution context encounters a function definition in code:
+	*a new function object is created with an internal [[scope]] property 
+	* [[scope]] references the current VariableEnvironment
+
+*This basically means that when the parser runs into your function, it remembers the context in which it is being executed, and a reference to that context is stored in memory.*
+
+* Practical applications
+	* Scoping your scripts for use by only a specific module
+	* Function templates
+	* jQuery plugins
+	
+```javascript
+// Theres a reason jQuery plugins are usually wrapped in an anonymous/self-calling function...
+
+// Create a closure that executes itself and accepts the jQuery object as a parameter
+(function($) {
+	// private variables, functions, etc that you don't want exposed publicly go here
+	
+	$.fn.foo = function(args) {
+		// your plugin code goes here
+	};
+})(jQuery);  // Call the anonymous function and pass in 'jQuery' to receive the new function binding
+```
+

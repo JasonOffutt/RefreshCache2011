@@ -1,15 +1,17 @@
-console.log(a);					// undefined
+// VariableEnvironment: { a: undefined }
 var a = 'global scope';
-console.log(a);					// 'global scope'
+// VariableEnvironment: { a: 'global scope' }
 
 function outerScopedFunction() {
+	// VariableEnvironment: { b: undefined, outerLex: { a: 'global scope' } }
 	var b = 'outer scope';
-	console.log(a);				// 'global scope'
+	// VariableEnvironment: { b: 'outer scope', outerLex: { a: 'global scope' } }
 	
-	// The closure created by this function effectively hides global scope
+	// The closure created by this function effectively hides
+	// the global execution context
 	function innerScopedFunction() {
-		console.log(a);			// undefined
+		// VariableEnvironment: { a: undefined, outerLex: { b: 'outer scope', outerLex: { a: 'global scope' } } }
 		var a = 'inner scope';
-		console.log(a);			// 'inner scope'
+		// VariableEnvironment: { a: 'inner scope', outerLex: { b: 'outer scope', outerLex: { a: 'global scope' } } }
 	}
 }
