@@ -187,3 +187,27 @@ My personal fav is Cascading. Though it's a little more involved than the other 
 
 # Object Prototypes
 
+Object prototypes are how you add functionality to instances of an object. Prototypes are exposed to allow developers to add and override functionality.
+
+```javascript
+var Person = function(args) {
+	// this is the constructor
+	this.firstName =  args.firstName ||'Jason';
+	this.lastName = args.lastName || 'Offutt';
+	this.birthdate = args.birthdate || Date.parse('3/11/1979');
+};
+
+// Static method declaration
+Person.doSomething = function() {
+	// ... do something...
+};
+
+// Instance method declaration
+Person.prototype.getAge = function() {
+	// ... calculate age in here...
+}
+
+var person = new Person();
+var age = person.getAge();
+Person.doSomething();
+```
