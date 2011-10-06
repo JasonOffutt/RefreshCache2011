@@ -95,10 +95,30 @@ function outerScopedFunction() {
 	* Scoping your scripts for use by only a specific module
 	* Function templates
 	* jQuery plugins
+	* functional programming
+
+'Templating' function behavior for better code reuse:
+
+```javascript
+function unitConverter(unitType, factor, offset) {
+	offset = offset || 0;
+	return function(input) {
+		return [((offset + input) * factor).toFixed(2), unitType].join(' ');
+	}
+}
+
+var miToKm = unitConverter('km', 1.60936);
+var lbsToKg = unitConverter('kg', 0.45460);
+var farenheitToCelcius = unitConverter('C', 0.5556, -32);
+
+console.log(miToKm(10));
+console.log(lbsToKg(2.5));
+console.log(farenheitToCelcius(98));
+```
+
+jQuery plugin creation:
 	
 ```javascript
-// Theres a reason jQuery plugins are usually wrapped in an anonymous/self-calling function...
-
 // Create a closure that executes itself and accepts the jQuery object as a parameter
 (function($) {
 	// private variables, functions, etc that you don't want exposed publicly go here
