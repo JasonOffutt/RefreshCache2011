@@ -8,7 +8,7 @@ var Person = function(args) {
 		return;
 	}
 
-	this.firstName =  args.firstName;
+	this.firstName = args.firstName;
 	this.lastName = args.lastName;
 	this.birthdate = args.birthdate;
 };
@@ -43,6 +43,11 @@ Person.prototype.getAge = function() {
 	return age;
 };
 
+// Overriding the toString() method of the object class
+Person.prototype.toString = function() {
+	return this.firstName + ' ' + this.lastName;
+}
+
 var person = new Person();
 var age = person.getAge();
 Person.doSomething();
@@ -73,6 +78,11 @@ public class Person
 	public int GetAge()
 	{
 		return BirthDate.Years;
+	}
+	
+	public override string ToString()
+	{
+		return string.Format("{0} {1}", FirstName, LastName);
 	}
 	
 	public static void DoSomething()

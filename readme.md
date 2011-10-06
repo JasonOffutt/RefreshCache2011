@@ -10,6 +10,7 @@ Helpful resources:
 * Use [jsfiddle](http://jsfiddle.net/) to test things out
 * [JavaScript Garden](http://bonsaiden.github.com/JavaScript-Garden/) for some good basic info
 * [Understanding Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) for more detailed info on closures
+* [Douglas Crockford's](http://en.wikipedia.org/wiki/Douglas_Crockford) article on [JavaScript code conventions](http://javascript.crockford.com/code.html)
 
 If you have any quesitons:
 
