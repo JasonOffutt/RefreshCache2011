@@ -129,3 +129,56 @@ jQuery plugin creation:
 })(jQuery);  // Call the anonymous function and pass in 'jQuery' to receive the new function binding
 ```
 
+# Namespacing
+
+* There are few popular ways to do this
+	* Global Object
+	* Singleton
+	* Cascading
+
+Global object: Works almost like a class with a bunch of static methods
+
+```javascript
+var MyGlobalObject = {};
+
+MyGlobalObject.sayHi = function() {
+	console.log('hi');
+};
+
+MyGlobalFunction.add = function(a, b) {
+	return a + b;
+};
+
+MyGlobalObject.sayHi();
+var result = MyGlobalObject.add(2, 8);
+```
+
+Singleton: Variant of Global Object, but uses a closure to provide a private scope to hide internal functionality
+
+```javascript
+var Singleton = (function() {
+	var privateVariable = 'foo';
+	
+	function privateFunction() {
+		console.log("I'm encapsulated!");
+	}
+	
+	return {
+		name: privateVariable,
+		doSomething: function() {
+			privateFunction();
+		}
+	};
+})();
+```
+
+Cascading: Building off Global Object and Singleton. Allows more classic style dot-notated namespaces
+
+```javascript
+window.CentralAZ = CentralAZ || {};
+CentralAZ.Web = CentralAZ.Web || {};
+
+CentralAZ.Web.EventRegistration = (function() {
+	// ... code goes in here...
+})();
+```
