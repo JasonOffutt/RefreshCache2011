@@ -74,6 +74,12 @@ public class Person
 	{
 		return BirthDate.Years;
 	}
+	
+	public static void DoSomething()
+	{
+		Console.WriteLine("Doing something...");
+		Console.WriteLine("Done")
+	}
 }
 
 var person = new Person();
