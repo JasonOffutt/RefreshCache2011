@@ -3,6 +3,8 @@
 * In JavaScript functions are first-class primitive objects
 	* This means that you can set a function to be the result of an expression:
 		* `var add = function(a, b) { return a + b; }`
+	* You can also pass a function as argument of a function:
+		* `$('.selector').click(function() { ...`
 	* You can then call that function or access its value (as a set of instructions)
 		* Function call: `var result = add(2, 2);`
 		* Accessing function value: `var someObject = { someMethod: add }`
